@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minesweeper Retro · 扫雷经典版</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="window">
+    <div class="title-bar">
+      <span class="title">💣 扫雷 (Minesweeper)</span>
+      <div class="controls">
+        <button id="btn-minimize">_</button>
+        <button id="btn-close">X</button>
+      </div>
+    </div>
+    <div class="menu-bar">
+      <div class="difficulty-group">
+        <button class="diff-btn active" data-diff="beginner">初级 (9x9)</button>
+        <button class="diff-btn" data-diff="intermediate">中级 (16x16)</button>
+        <button class="diff-btn" data-diff="expert">高级 (30x16)</button>
+      </div>
+    </div>
+    <div class="game-container">
+      <div class="status-bar">
+        <div class="digital-lcd" id="mine-counter">010</div>
+        <button id="smiley-btn" class="smiley">🙂</button>
+        <div class="digital-lcd" id="timer">000</div>
+      </div>
+      <div id="board-container" class="board-frame">
+        <div id="minefield" class="minefield"></div>
+      </div>
+      <div class="footer-bar">
+        <span>BEST: <span id="best-time">--</span>s</span>
+      </div>
+    </div>
+  </div>
+  <script src="minesweeper.js"></script>
+</body>
+</html>
