@@ -1,0 +1,8 @@
+{
+  "checks": [
+    {"id": "unit", "argv": ["{python}", "-m", "unittest", "discover", "-s", "tests", "-v"], "timeout_seconds": 90},
+    {"id": "runtime", "argv": ["{python}", "-m", "unittest", "discover", "-s", "tests", "-p", "test_runtime.py"], "timeout_seconds": 45},
+    {"id": "regression", "argv": ["{python}", "-m", "pytest", "-q", "{test_file}", "{junit_option}"], "timeout_seconds": 60}
+  ],
+  "protected_paths": ["tests", "execution-checks.json"]
+}

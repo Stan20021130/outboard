@@ -1,0 +1,50 @@
+[
+  {
+    "id": "implementation-localization",
+    "repo": "fixtures",
+    "task": {
+      "objective": "Pagination returns one extra item on a full page. Locate the page slicing implementation and its relevant tests.",
+      "task_type": "localize",
+      "acceptance_criteria": [
+        "Identify the source range implementing pagination boundaries, with evidence.",
+        "Identify tests that exercise a full page and the final page."
+      ]
+    },
+    "expected_files": ["sample_app/pagination.py", "tests/test_pagination.py"],
+    "repair_objective": "Fix pagination so each full page contains exactly page_size items and the final page contains only the remaining items. Preserve the API and do not edit tests.",
+    "test_command": ["{python}", "-m", "unittest", "discover", "-s", "tests", "-p", "test_pagination.py"]
+  },
+  {
+    "id": "configuration-trace",
+    "repo": "fixtures",
+    "task": {
+      "objective": "Trace API_TIMEOUT_SECONDS from its environment source through settings to request timeout consumption, including override order and relevant tests.",
+      "task_type": "trace_config",
+      "acceptance_criteria": [
+        "Locate the environment configuration source and default value.",
+        "Trace the settings to middleware to request path and explain any propagation gap visible in code.",
+        "Identify request override and environment propagation tests."
+      ]
+    },
+    "expected_files": ["sample_app/settings.py", "sample_app/middleware.py", "sample_app/api.py", "tests/test_timeout.py"],
+    "repair_objective": "Fix environment timeout propagation so API_TIMEOUT_SECONDS is used unless request_timeout explicitly overrides it. Preserve the default and do not edit tests.",
+    "test_command": ["{python}", "-m", "unittest", "discover", "-s", "tests", "-p", "test_timeout.py"]
+  },
+  {
+    "id": "failing-test-localization",
+    "repo": "fixtures",
+    "task": {
+      "objective": "Investigate TimeoutTests.test_environment_timeout_propagates failing with AssertionError: 30 != 7. Locate the assertion, input construction, relevant implementation and source-supported hypotheses.",
+      "task_type": "test_failure",
+      "known_evidence": ["The supplied failure is from tests/test_timeout.py on this fixture snapshot."],
+      "acceptance_criteria": [
+        "Locate the failing assertion and the environment input it constructs.",
+        "Locate the implementation path that selects the effective timeout, distinguishing source facts from runtime hypotheses."
+      ]
+    },
+    "expected_files": ["tests/test_timeout.py", "sample_app/api.py", "sample_app/settings.py", "sample_app/middleware.py"],
+    "repair_objective": "Fix the failing environment timeout test while preserving explicit request override and default timeout behavior. Do not edit tests.",
+    "test_command": ["{python}", "-m", "unittest", "discover", "-s", "tests", "-p", "test_timeout.py"]
+  }
+]
+

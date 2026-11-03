@@ -1,0 +1,14 @@
+[mcp_servers.trajectory-investigator]
+command = "F:/CTOS/.venv/Scripts/python.exe"
+args = ["-m", "trajectory_offload", "serve", "--repo", "F:/CTOS", "--model", "deepseek-v4.1-flash", "--reasoning", "low", "--checks", "F:/CTOS/execution-checks.json", "--max-process-seconds", "90", "--max-output-tokens", "8000"]
+cwd = "F:/CTOS"
+startup_timeout_sec = 20
+required = true
+tool_timeout_sec = 300
+enabled_tools = ["get_repository_state", "investigate_repository", "cluster_test_failures", "construct_regression_test", "verify_patch", "diagnose_failure"]
+env_vars = ["OPENAI_API_KEY"]
+
+[mcp_servers.trajectory-investigator.env]
+OPENAI_BASE_URL = "http://127.0.0.1:8788/v1"
+OPENAI_API_KEY = "local-dev"
+

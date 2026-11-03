@@ -1,0 +1,8 @@
+{
+  "checks": [
+    {"id": "timeout", "argv": ["{python}", "-m", "unittest", "discover", "-s", "tests", "-p", "test_timeout.py"], "timeout_seconds": 20},
+    {"id": "pagination", "argv": ["{python}", "-m", "unittest", "discover", "-s", "tests", "-p", "test_pagination.py"], "timeout_seconds": 20},
+    {"id": "regression", "argv": ["{python}", "-m", "unittest", "discover", "-s", "tests"], "timeout_seconds": 30}
+  ],
+  "protected_paths": ["tests"]
+}

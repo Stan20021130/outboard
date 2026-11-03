@@ -1,0 +1,10 @@
+{
+  "objective": "Analyze the bounded static impact of changing build_timeout_policy to consume the loaded timeout setting. Identify observed import dependencies, relevant consumers and candidate regression tests, with explicit scope limits.",
+  "task_type": "change_impact",
+  "changed_paths": ["sample_app/middleware.py"],
+  "symbols": ["build_timeout_policy"],
+  "acceptance_criteria": [
+    "Identify the changed implementation and its observed import/use dependencies, distinguishing static facts from potential behavioral impact.",
+    "Identify candidate timeout regression tests and explain what they assert, without claiming complete runtime impact coverage."
+  ]
+}

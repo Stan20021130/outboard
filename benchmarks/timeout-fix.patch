@@ -1,0 +1,9 @@
+--- a/sample_app/middleware.py
++++ b/sample_app/middleware.py
+@@ -7,5 +7,5 @@
+     if request_timeout is not None:
+         timeout = request_timeout
+     else:
+-        timeout = DEFAULT_TIMEOUT_SECONDS
++        timeout = settings["timeout_seconds"]
+     return {"timeout": timeout, "source": "request" if request_timeout is not None else "settings"}

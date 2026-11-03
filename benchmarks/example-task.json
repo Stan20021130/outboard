@@ -1,0 +1,12 @@
+{
+  "objective": "Trace API_TIMEOUT_SECONDS from the environment to the middleware consumer and identify related tests.",
+  "task_type": "trace_config",
+  "scope": [],
+  "known_evidence": [],
+  "acceptance_criteria": [
+    "Locate the configuration source and default.",
+    "Explain the consumer and override behavior with exact code evidence.",
+    "Locate the relevant tests."
+  ]
+}
+
